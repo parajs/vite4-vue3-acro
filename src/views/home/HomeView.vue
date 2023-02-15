@@ -2,6 +2,7 @@
   const visible = ref(false);
 
   const handleClick = () => {
+    execute();
     visible.value = true;
   };
   const handleOk = () => {
@@ -10,16 +11,22 @@
   const handleCancel = () => {
     visible.value = false;
   }
+
+  const { data,execute} = indexlist({page:1})
+
 </script>
 
 <template>
   <main>
     <a-button @click="handleClick">Open Modal</a-button>
-  <a-modal v-model:visible="visible" @ok="handleOk" @cancel="handleCancel">
-    <template #title>
-      Title
-    </template>
-    <div>You can customize modal body text by the current situation. This modal will be closed immediately once you press the OK button.</div>
-  </a-modal>
+    <a-modal v-model:visible="visible" @ok="handleOk" @cancel="handleCancel">
+      <template #title>
+        Title
+      </template>
+      <div>You can customize modal body text by the current situation. This modal will be closed immediately once you press the OK button.</div>
+    </a-modal>
+    <div v-for="(item,index) in data.list">
+    {{item.title}}
+    </div>
   </main>
 </template>

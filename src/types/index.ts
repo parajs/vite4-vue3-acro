@@ -1,0 +1,1 @@
+export type KVObject = Record<string, any>

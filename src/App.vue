@@ -1,6 +1,6 @@
 <script setup lang="ts">
   const locale = useAcroDesignLocale()
-  debugger
+  const languages = usePreferredLanguages()
 </script>
 
 <template>
