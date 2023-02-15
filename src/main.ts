@@ -10,7 +10,7 @@ import './assets/main.css'
 // import messages from '@intlify/unplugin-vue-i18n/messages'
 
 const i18n = createI18n({
-    locale: 'en',
+    locale: 'zh-CN',
 })
 
 const app = createApp(App)
