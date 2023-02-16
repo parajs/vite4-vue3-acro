@@ -5,12 +5,14 @@ import { createI18n } from 'vue-i18n'
 import App from './App.vue'
 // import router from './router'
 
-import './assets/main.css'
+// import './assets/main.css'
 
 // import messages from '@intlify/unplugin-vue-i18n/messages'
 
 const i18n = createI18n({
     locale: 'zh-CN',
+    // Legacy: false,
+    fallbackLocale: 'zh-CN'
 })
 
 const app = createApp(App)

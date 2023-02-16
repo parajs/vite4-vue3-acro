@@ -8,6 +8,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite';
 import { ArcoResolver } from 'unplugin-vue-components/resolvers';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+import vitePluginForArco from '@arco-plugins/vite-vue'
 
 // https://vitejs.dev/config/
 
@@ -35,6 +36,10 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       vue(),
       vueJsx(),
+      vitePluginForArco({
+        theme: '@arco-themes/vue-pldd',
+        style: 'css'
+      }),
       AutoImport({
         eslintrc: {
           enabled: true, // Default `false`

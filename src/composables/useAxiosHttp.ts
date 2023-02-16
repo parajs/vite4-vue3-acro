@@ -3,6 +3,13 @@
 import { useAxios, type UseAxiosOptions } from '@vueuse/integrations/useAxios';
 import axios, { type AxiosRequestConfig } from 'axios';
 
+// 用户可以根据自身后台系统进行修改
+export interface HttpResponse<T = unknown> {
+    msg: string;
+    code: number;
+    data: T;
+}
+
 // create an axios instance
 const instance = axios.create({
     withCredentials: false

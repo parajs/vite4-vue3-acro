@@ -1,14 +1,11 @@
 <script setup lang="ts">
-  const locale = useAcroDesignLocale()
-  const languages = usePreferredLanguages()
+  const { localeMessages } = useAcroDesiginLocale()
 </script>
 
 <template>
-   <a-config-provider :locale="locale">
+   <a-config-provider :locale="localeMessages">
     <RouterView />
   </a-config-provider>
-
-  
 </template>
 
 <style scoped>
