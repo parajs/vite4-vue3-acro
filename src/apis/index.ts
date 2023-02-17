@@ -9,3 +9,10 @@ export function indexlist(params?: KVObject) {
     })
 
 }
+
+export function homelist(params?: KVObject) {
+    return useAxiosHttp(`${apiPrefix}/home/list`, {
+        method: 'get',
+        params: params
+    })
+}

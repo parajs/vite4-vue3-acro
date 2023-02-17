@@ -61,4 +61,6 @@ npm run lint
 ### [vue-i18n](https://kazupon.github.io/vue-i18n/)
 ### [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
 ### [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
+### [vite-plugin-mock-dev-server](https://github.com/pengzhanbo/vite-plugin-mock-dev-server)
+
 

@@ -4,9 +4,16 @@
 
 <template>
       <header class="fixed-header">
-         <div>left</div>
-         <div>
-           <SunButton />
+         <div class="left-side">
+            <icon-lark-color size="30" />
+            <h3 class="ml-3"> Vite4-vue3-acrodesign 模板</h3>
+           
+         </div>
+         <div class="right-side">
+            <a-space>
+               <LocaleButton  />
+               <ThemeButton />
+            </a-space>
          </div>
       </header>
 </template>
@@ -26,6 +33,11 @@
     background-color: var(--color-bg-2);
     color: var(--color-text-1);
 
+ }
+
+ .left-side,.right-side {
+   display: flex;
+   align-items: center;
  }
 
 

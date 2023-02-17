@@ -5,12 +5,12 @@ import { createI18n } from 'vue-i18n'
 import App from './App.vue'
 // import router from './router'
 
-// import './assets/main.css'
+import './styles/global.css'
 
 // import messages from '@intlify/unplugin-vue-i18n/messages'
-
+const defaultLocale = localStorage.getItem('arco-locale') || 'zh-CN';
 const i18n = createI18n({
-    locale: 'zh-CN',
+    locale: defaultLocale,
     // Legacy: false,
     fallbackLocale: 'zh-CN'
 })

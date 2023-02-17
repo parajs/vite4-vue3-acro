@@ -9,7 +9,8 @@ import Components from 'unplugin-vue-components/vite';
 import { ArcoResolver } from 'unplugin-vue-components/resolvers';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import vitePluginForArco from '@arco-plugins/vite-vue'
-
+import mockDevServerPlugin from 'vite-plugin-mock-dev-server'
+import path from 'node:path'
 // https://vitejs.dev/config/
 
 
@@ -27,10 +28,10 @@ export default defineConfig(({ command, mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
-        '/ws': {
-          target: 'http://api.beehub.paradeum.com',
-          ws: true
-        }
+        // '/ws': {
+        //   target: 'http://api.beehub.paradeum.com',
+        //   ws: true
+        // }
       }
     },
     plugins: [
@@ -39,6 +40,19 @@ export default defineConfig(({ command, mode }) => {
       vitePluginForArco({
         theme: '@arco-themes/vue-pldd',
         style: 'css'
+      }),
+      mockDevServerPlugin({
+        include: 'mocks/**/*.mock.{ts,js,cjs,mjs,json,json5}',
+        formidableOptions: {
+          // 配置上传资源存放目录
+          uploadDir: fileURLToPath(new URL('./uploads', import.meta.url)),
+          // 可修改上传资源名称
+          // @ts-ignore
+          filename: (name, ext, part) => {
+            return part.originalFilename!
+          },
+        },
+        build: true,
       }),
       AutoImport({
         eslintrc: {
@@ -67,6 +81,7 @@ export default defineConfig(({ command, mode }) => {
         ]
       }),
       VueI18nPlugin({ /* options */ }),
+
     ],
     resolve: {
       alias: {
