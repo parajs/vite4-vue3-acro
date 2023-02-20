@@ -1,7 +1,8 @@
 export type Theme = 'dark' | 'light' | 'desk'
 
-export default function useTheme(theme: Theme = 'light') {
-    const currentTheme = ref(theme)
+export default function useTheme() {
+    const arcoTheme = (localStorage.getItem('arco-theme') || 'light') as Theme;
+    const currentTheme = ref(arcoTheme)
     let darkThemeMq: MediaQueryList
 
     const callBack = (e: MediaQueryListEvent) => {
@@ -16,14 +17,14 @@ export default function useTheme(theme: Theme = 'light') {
             dark() {
                 // 设置为暗黑主题
                 document.body.setAttribute('arco-theme', 'dark')
-                localStorage.setItem('arco-locale', value)
+                localStorage.setItem('arco-theme', value)
                 currentTheme.value = 'dark'
                 darkThemeMq && darkThemeMq.removeListener(callBack)
             },
             light() {
                 // 恢复亮色主题
                 document.body.removeAttribute('arco-theme')
-                localStorage.removeItem('arco-locale')
+                localStorage.removeItem('arco-theme')
                 currentTheme.value = 'light'
                 darkThemeMq && darkThemeMq.removeListener(callBack)
             },
@@ -39,6 +40,9 @@ export default function useTheme(theme: Theme = 'light') {
         map[value]()
         // useStorage({key: 'arco-locale', defaults: value})
     };
+
+    changeTheme(arcoTheme)
+
     return {
         currentTheme,
         changeTheme,

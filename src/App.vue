@@ -1,5 +1,6 @@
 <script setup lang="ts">
   const { localeMessages } = useAcroDesiginLocale()
+  useTheme()
 </script>
 
 <template>

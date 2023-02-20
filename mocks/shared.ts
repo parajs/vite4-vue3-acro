@@ -7,7 +7,7 @@ export const successResponseWrap = (data: unknown) => {
     };
 };
 
-export const failResponseWrap = (data: unknown, msg: string, code = 50000) => {
+export const failResponseWrap = (data: unknown, msg: string, code = 500) => {
     return {
         data,
         msg,

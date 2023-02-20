@@ -53,4 +53,4 @@
     
   </main>
 </template>
-<i18n src="./HomeView.json"></i18n>
+<i18n src="./Home.json"></i18n>

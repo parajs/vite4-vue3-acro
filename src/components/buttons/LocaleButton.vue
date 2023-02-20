@@ -1,6 +1,4 @@
 <script lang="ts" setup >
-  import type { Theme } from '@/composables/useTheme'
-  const { t } = useI18n()
   const {currentLocale, changeLocale} = useAcroDesiginLocale();
 
   const locales = [
