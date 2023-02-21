@@ -1,13 +1,10 @@
 
-// import ArcoVue from '@arco-design/web-vue';
-// import '@arco-design/web-vue/dist/arco.css';
 import { createI18n } from 'vue-i18n'
 import App from './App.vue'
-// import router from './router'
-
+import router from './router'
+import '@/utils/interceptors'
 import './styles/global.css'
 
-// import messages from '@intlify/unplugin-vue-i18n/messages'
 const defaultLocale = localStorage.getItem('arco-locale') || 'zh-CN';
 const i18n = createI18n({
     locale: defaultLocale,

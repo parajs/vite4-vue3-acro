@@ -1,28 +1,68 @@
 <template>
-    <a-space direction="vertical" size="large" :style="{width: '600px'}">
-      <a-form :model="form" layout="vertical">
-        <a-form-item field="name" label="Username">
-          <a-input v-model="form.name" placeholder="please enter your username..." />
-        </a-form-item>
-        <a-form-item field="post" label="Post">
-          <a-input v-model="form.post" placeholder="please enter your post..." />
-        </a-form-item>
-        <a-form-item field="isRead">
-          <a-checkbox v-model="form.isRead">
-            I have read the manual
-          </a-checkbox>
-        </a-form-item>
-        <a-form-item>
-          <a-button>Submit</a-button>
-        </a-form-item>
-      </a-form>
-    </a-space>
-  </template>
-  <script lang="ts" setup>
-    const form = reactive({
-      name: '',
-      post: '',
-      isRead: false,
-    })
+   <a-layout class="login-layout">
+    <a-space direction="vertical" size="large" style="width: 500px;">
+        <div class="text-center">
+          <Logo />
+        </div>
+        <a-form ref="refForm" :model="form" layout="vertical" size="large" :rules="rules" >
+          <a-form-item field="username" hide-label>
+            <a-input v-model="form.username"  :placeholder="t('usernamePlaceholder')" allow-clear>
+              <template #prefix>
+                <icon-user />
+              </template>
+            </a-input>
+          </a-form-item>
+          <a-form-item field="pwd" hide-label>
+            <a-input-password  v-model="form.pwd" :placeholder="t('pwdPlaceholder')" allow-clear>
+              <template #prefix>
+                <icon-eye />
+              </template>
+            </a-input-password>
+          </a-form-item>
+          <a-form-item>
+            <a-button @click="login" type="primary" size="large" long>{{ t('submit') }}</a-button>
+          </a-form-item>
+        </a-form>
+      </a-space>
+   </a-layout>
+</template>
+<i18n src="./locales/Login.json" />
+<script lang="ts" setup>
+import type { FormInstance } from '@arco-design/web-vue';
+const { t } = useI18n()
+const form = reactive({
+  username: '',
+  pwd: '',
+})
 
-  </script>
+const router = useRouter();
+const refForm = ref<FormInstance>();    
+
+const rules ={
+  'username': [{
+    required: true,
+    message: t('usernamePlaceholder')
+  }],
+  'pwd': [{
+    required: true,
+    message: t('pwdPlaceholder')
+  }]
+}
+
+const login = async ()=>{
+  const errors = await refForm.value?.validate()
+  if(!errors){
+    await userLogin(form)
+    router.push('/circle')
+  }
+}
+
+</script>
+
+<style scoped>
+.login-layout {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+</style>

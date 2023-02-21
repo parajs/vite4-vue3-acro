@@ -16,6 +16,7 @@ export default function beforeEach(router: Router) {
         } else {
             title.value = VITE_TITLE as string;
         }
+
         // determine whether the user has logged in
         if (store.state.web3.token) {
             // 已登录后访问登录页，重定向首页

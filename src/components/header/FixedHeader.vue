@@ -1,5 +1,5 @@
 <script lang="ts" setup >
-
+  const { t } = useI18n()
 </script>
 
 <template>
@@ -7,16 +7,18 @@
          <div class="left-side">
             <icon-lark-color size="30" />
             <h3 class="ml-3"> Vite4-vue3-acrodesign 模板</h3>
-           
          </div>
          <div class="right-side">
             <a-space>
+               <a-button href="/user/login">{{ t('login-btn') }}</a-button>
                <LocaleButton  />
                <ThemeButton />
             </a-space>
          </div>
       </header>
 </template>
+
+<i18n src="./FixedHeader.json" />
 
 <style scoped>
  .fixed-header {

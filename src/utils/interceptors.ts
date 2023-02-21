@@ -1,16 +1,10 @@
 // import store from '@/store';
 // import { getLanguage } from '@/utils';
-import { useAxios, type UseAxiosOptions } from '@vueuse/integrations/useAxios';
-import axios, { type AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
-
-// create an axios instance
-const instance = axios.create({
-    withCredentials: false
-});
 
 // request interceptor
-instance.interceptors.request.use(
+axios.interceptors.request.use(
     (config) => {
         // do something before request is sent
         const token = '';
@@ -30,7 +24,7 @@ instance.interceptors.request.use(
 );
 
 // response interceptor
-instance.interceptors.response.use(
+axios.interceptors.response.use(
     /**
      * If you want to get http information such as headers or status
      * Please return  response => response
@@ -52,9 +46,9 @@ instance.interceptors.response.use(
             }
 
             return Promise.reject(res.msg || 'Error');
-        } else {
-            return res;
         }
+
+        return res.data;
     },
     (error) => {
         console.log('err' + error);
@@ -62,13 +56,3 @@ instance.interceptors.response.use(
         return Promise.reject(error.message);
     }
 );
-
-
-/**
- * reactive useFetchApi
- */
-
-// export default function useAxiosHttp(url: string, config: AxiosRequestConfig, options: UseAxiosOptions = { immediate: true }) {
-//     return useAxios(url, config, instance, options);
-// }
-

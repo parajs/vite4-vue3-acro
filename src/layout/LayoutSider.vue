@@ -1,7 +1,7 @@
 <template>
-    <img :src="logo" class="logo" />
+    <Logo />
     <a-button class="button-48"  shape="circle" size="large">
-    <icon-plus />
+        <icon-plus />
     </a-button>
 </template>
 <script lang="ts" setup>
@@ -13,10 +13,4 @@
     height: 48px !important;
 }
 
-.logo {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    width: 48px;
-    height: 48px;
-}
 </style>

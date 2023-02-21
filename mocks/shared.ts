@@ -1,5 +1,5 @@
 
-export const successResponseWrap = (data: unknown) => {
+export const successResponse = (data: unknown) => {
     return {
         data,
         msg: '请求成功',
@@ -7,7 +7,7 @@ export const successResponseWrap = (data: unknown) => {
     };
 };
 
-export const failResponseWrap = (data: unknown, msg: string, code = 500) => {
+export const failResponse = (data: unknown, msg: string, code = 500) => {
     return {
         data,
         msg,

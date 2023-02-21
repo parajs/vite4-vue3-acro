@@ -67,7 +67,6 @@ export default defineConfig(({ command, mode }) => {
           './src/stores/**',
           './src/composables',// only root modules
           './src/composables/**',// all nested modules
-          './src/router',
           './src/utils',
           './src/apis',
         ],

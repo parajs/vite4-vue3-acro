@@ -1,7 +1,12 @@
 import { defineMock } from 'vite-plugin-mock-dev-server'
-import { successResponseWrap } from './shared'
+import { successResponse } from './shared'
 import homeList from './data/home'
+
+
+// home list
 export default defineMock({
     url: '/api/home/list',
-    body: successResponseWrap(homeList)
+    method: 'GET',
+    body: successResponse(homeList)
 })
+

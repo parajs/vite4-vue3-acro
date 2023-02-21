@@ -5,7 +5,15 @@
 
 <template>
    <a-config-provider :locale="localeMessages">
-    <RouterView />
+    <Suspense>
+      <template #default>
+        <RouterView />
+      </template>
+      <template #fallback>
+        <a-spin/>
+      </template>
+    </Suspense>
+    
   </a-config-provider>
 </template>
 
