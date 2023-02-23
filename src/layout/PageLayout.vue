@@ -12,6 +12,5 @@
             :key="route.meta.usePathKey ? route.path : undefined"
           />
         </keep-alive>
-        
   </router-view>
 </template>

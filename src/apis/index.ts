@@ -1,4 +1,4 @@
-import type { PageData, KVObject } from "@/types"
+
 import axios from "axios"
 
 const apiPrefix = getEnvValue('VITE_API_PREFIX')

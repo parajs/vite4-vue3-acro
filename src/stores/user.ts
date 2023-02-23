@@ -1,5 +1,3 @@
-import type { KVObject } from "@/types"
-
 
 export const useUserStore = defineStore('user', () => {
   const storeageToken = localStorage.getItem('userToken')
@@ -7,6 +5,8 @@ export const useUserStore = defineStore('user', () => {
   const userToken = ref(storeageToken)
 
   const user = ref(storeageUser);
+
+  // 登录
   function login(payload: KVObject) {
     const { token, user } = payload
     localStorage.setItem('userToken', token)
@@ -16,5 +16,15 @@ export const useUserStore = defineStore('user', () => {
     userToken.value = token
   }
 
-  return { userToken, user, login }
+  // 退出登录
+  async function exit() {
+    localStorage.removeItem('userToken')
+    localStorage.removeItem('user')
+    user.value = ''
+    userToken.value = ''
+    await __router.push('/')
+    messageInfo(__t('exitTips'))
+  }
+
+  return { userToken, user, login, exit }
 })

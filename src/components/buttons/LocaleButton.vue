@@ -9,7 +9,7 @@
 </script>
 
 <template>
-    <a-dropdown trigger="hover">
+    <a-dropdown trigger="hover" >
         <a-button type="text">
             {{ currentLocale === 'zh-CN' ? '简体中文': 'English' }}
             <template #icon>
@@ -21,10 +21,12 @@
         :active="currentLocale == item.locale" 
         v-for="(item,key) in locales" 
         @click="changeLocale(item.locale)"> 
-            <div class="check-btn">
-                <icon-check  v-if="currentLocale == item.locale" />
-            </div>
-            <span class="ml-2">{{ item.tag }}</span>
+            <template #icon>
+                <div class="check-btn">
+                    <icon-check  v-if="currentLocale == item.locale" />
+                </div>
+            </template>
+            <span>{{ item.tag }}</span>
         </a-doption>
       </template>
     </a-dropdown>
@@ -32,7 +34,6 @@
 <style scoped >
 .check-btn {
     width:  20px;
-    display:inline-block;
 }
 </style>
 

@@ -21,9 +21,12 @@
         </a-button>
       <template #content>
         <a-doption :active="currentTheme == item.type" v-for="(item,key) in themes" @click="changeTheme(item.type as Theme)"> 
-            <IconSun v-if="item.type === 'light'" />
-            <icon-moon-fill v-if="item.type === 'dark'"  />
-            <icon-desktop v-if="item.type === 'desk'"  />
+         
+            <template #icon>
+                <IconSun v-if="item.type === 'light'" />
+                <icon-moon-fill v-if="item.type === 'dark'"  />
+                <icon-desktop v-if="item.type === 'desk'"  />
+            </template>
             <span class="ml-2 mr-2">{{ t(item.t) }}</span>
             <icon-check  v-if="currentTheme == item.type" />
         </a-doption>

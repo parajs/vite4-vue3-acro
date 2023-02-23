@@ -18,7 +18,7 @@ export default function beforeEach(router: Router) {
         // determine whether the user has logged in
         if (userStore.userToken) {
             // 已登录后访问登录页，重定向首页
-            to.name === 'login' ? next({ name: 'home' }) : next();
+            to.name === 'login' ? next('/') : next();
         } else {
             // has no token
             if (whiteList.indexOf(to.name as string) != -1) {
@@ -26,7 +26,7 @@ export default function beforeEach(router: Router) {
                 next();
             } else {
                 // other pages that do not have permission to access are redirected to the login page.
-                next({ name: 'home' });
+                next('/');
             }
         }
     });

@@ -7,6 +7,7 @@ import routes from './routes';
 import scrollBehavior from './scrollBehavior'
 import beforeEach from './beforeEach';
 
+debugger
 
 const router: Router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,6 @@ const router: Router = createRouter({
   scrollBehavior
 });
 
-// beforeEach(router)
+beforeEach(router)
 
 export default router;

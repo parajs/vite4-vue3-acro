@@ -58,7 +58,7 @@ export default defineConfig(({ command, mode }) => {
         eslintrc: {
           enabled: true, // Default `false`
         },
-        imports: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core'],
+        imports: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core',],
 
         // Auto import for module exports under directories
         // by default it only scan one level of modules under the directory

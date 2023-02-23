@@ -28,6 +28,16 @@ const routes: RouteRecordRaw[] = [
                 // which is lazy-loaded when the route is visited.
                 component: () => import('@/views/circle/index.vue')
             },
+            {
+                path: '/profile',
+                name: 'profile',
+                component: () => import('@/views/user/Profile.vue')
+            },
+            {
+                path: '/creativeCentre',
+                name: 'creativeCentre',
+                component: () => import('@/views/creativeCentre/index.vue')
+            },
         ]
     }
 ]

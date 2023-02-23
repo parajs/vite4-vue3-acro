@@ -214,3 +214,9 @@ body {
 .text-right {
     text-align: right !important;
 }
+
+.text-truncate {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
