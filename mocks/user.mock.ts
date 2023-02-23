@@ -1,14 +1,19 @@
 import { defineMock } from 'vite-plugin-mock-dev-server'
 import { successResponse } from './shared'
+import md5Encryption from "../src/utils/md5Encryption"
 
 // login
 export default defineMock({
     url: '/api/user/login',
     method: 'POST',
     body({ body }) {
-        debugger
         const user: Record<string, any> = {};
         user.username = body.username;
-        return successResponse(user)
+        const token = md5Encryption(body.username)
+        return successResponse({
+            token,
+            user
+        })
     }
 })
+

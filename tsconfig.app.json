@@ -5,7 +5,8 @@
     "src/**/*",
     "src/**/*.vue",
     "components.d.ts",
-    "auto-imports.d.ts"
+    "auto-imports.d.ts",
+    "mocks/**/*"
   ],
   "exclude": [
     "src/**/__tests__/*"

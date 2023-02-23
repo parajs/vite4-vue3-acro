@@ -1,26 +1,24 @@
 import type { Router } from "vue-router";
 
+
 const VITE_TITLE = getEnvValue('VITE_TITLE') as string;
 
 // whiteList
-const whiteList: Array<string> = ['Home', 'Login'];
+const whiteList: Array<string> = ['login', 'home'];
 
 const title = useTitle(VITE_TITLE);
 
 export default function beforeEach(router: Router) {
 
     router.beforeEach(async (to, from, next) => {
+        const userStore = useUserStore()
         // set title
-        if (to.meta?.title) {
-            title.value = to.meta.title as string;
-        } else {
-            title.value = VITE_TITLE as string;
-        }
+        to.meta?.title ? title.value = to.meta.title as string : title.value = VITE_TITLE as string;
 
         // determine whether the user has logged in
-        if (store.state.web3.token) {
+        if (userStore.userToken) {
             // 已登录后访问登录页，重定向首页
-            to.name === 'Login' ? next({ name: 'LabList' }) : next();
+            to.name === 'login' ? next({ name: 'home' }) : next();
         } else {
             // has no token
             if (whiteList.indexOf(to.name as string) != -1) {
@@ -28,7 +26,7 @@ export default function beforeEach(router: Router) {
                 next();
             } else {
                 // other pages that do not have permission to access are redirected to the login page.
-                next({ name: 'Home' });
+                next({ name: 'home' });
             }
         }
     });

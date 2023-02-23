@@ -52,8 +52,11 @@ const rules ={
 const login = async ()=>{
   const errors = await refForm.value?.validate()
   if(!errors){
-    await userLogin(form)
-    router.push('/circle')
+    const res = await userLogin(form)
+    const store = useUserStore()
+    store.login(res)
+    await router.push('/circle')
+    messageInfo(t('loginSuccessTips'))
   }
 }
 

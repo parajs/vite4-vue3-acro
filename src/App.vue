@@ -16,7 +16,3 @@
     
   </a-config-provider>
 </template>
-
-<style scoped>
-
-</style>
