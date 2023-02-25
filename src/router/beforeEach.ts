@@ -1,19 +1,17 @@
 import type { Router } from "vue-router";
 
-
-const VITE_TITLE = getEnvValue('VITE_TITLE') as string;
-
-// whiteList
+// WhiteList
 const whiteList: Array<string> = ['login', 'home'];
 
-const title = useTitle(VITE_TITLE);
+const appTitle = __t('title') as string
+const title = useTitle(appTitle);
 
 export default function beforeEach(router: Router) {
 
     router.beforeEach(async (to, from, next) => {
         const userStore = useUserStore()
         // set title
-        to.meta?.title ? title.value = to.meta.title as string : title.value = VITE_TITLE as string;
+        to.meta?.title ? title.value = to.meta.title as string : title.value = appTitle as string;
 
         // determine whether the user has logged in
         if (userStore.userToken) {
