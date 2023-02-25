@@ -17,6 +17,9 @@
   <style scoped lang="less">
     .layout-content {
       min-height: 100vh;
+      box-sizing: border-box;
+      padding-left: 70px;
+      padding-top: 60px;
       overflow-y: hidden;
       background-color: var(--color-bg-2);
     }

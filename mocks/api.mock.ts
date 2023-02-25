@@ -5,7 +5,7 @@ import homeList from './data/home'
 
 // home list
 export default defineMock({
-    url: '/api/home/list',
+    url: '/api/mock/list',
     method: 'GET',
     body: successResponse(homeList)
 })

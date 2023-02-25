@@ -23,11 +23,11 @@ const { exit } = useUserStore()
                 <div class="online"><a-badge status="success" class="mr-2" />在线</div>
             </div>
         </a-space>
-        <a-doption class="doption-item"> 
+        <a-doption class="doption-item" @click="$router.push('/creativeCentre')"> 
             <icon-edit  />
             <span class="ml-4">创作中心</span>
         </a-doption>
-        <a-doption class="doption-item"> 
+        <a-doption class="doption-item" @click="$router.push('/user/profile')"> 
             <icon-user />
             <span class="ml-4">个人主页</span>
         </a-doption>
@@ -45,6 +45,7 @@ const { exit } = useUserStore()
 }
 .nickname {
     font-size: 16px;
+    color: var(--color-text-2);
 }
 .online {
     margin-top: 12px;

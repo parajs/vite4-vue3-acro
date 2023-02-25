@@ -14,10 +14,10 @@ declare const __app: App;
 declare const __i18n: I18n;
 
 declare interface PageData {
-    pageIndex: number;
-    pageSize: number;
-    total: number;
-    list: Array<KVObject>;
+    pageIndex?: number;
+    pageSize?: number;
+    total?: number;
+    list?: Array<KVObject>;
 }
 
 declare type KVObject = Record<string, any>

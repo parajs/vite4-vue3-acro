@@ -1,19 +1,23 @@
 
 export const useUserStore = defineStore('user', () => {
-  const storeageToken = localStorage.getItem('userToken')
-  const storeageUser = localStorage.getItem('user')
-  const userToken = ref(storeageToken)
+  const storageToken = localStorage.getItem('userToken')
+  const storageUser = localStorage.getItem('user')
 
-  const user = ref(storeageUser);
+  // state
+  const userToken = ref(storageToken)
+  const user = ref(storageUser ? JSON.parse(storageUser) : null);
+
 
   // 登录
-  function login(payload: KVObject) {
+  async function login(payload: KVObject) {
     const { token, user } = payload
     localStorage.setItem('userToken', token)
     localStorage.setItem('user', JSON.stringify(user))
 
     user.value = user;
     userToken.value = token
+    await __router.push('/circle')
+    messageInfo(__t('loginSuccessTips'))
   }
 
   // 退出登录

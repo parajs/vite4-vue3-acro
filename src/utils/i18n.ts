@@ -1,5 +1,5 @@
 
-import { createI18n, type I18n } from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 
 import messages from '@/locales/index.json'
 const defaultLocale = localStorage.getItem('arco-locale') || 'zh-CN';

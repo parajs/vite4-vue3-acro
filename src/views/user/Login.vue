@@ -55,8 +55,6 @@ const login = async ()=>{
     const res = await userLogin(form)
     const store = useUserStore()
     store.login(res)
-    await router.push('/circle')
-    messageInfo(t('loginSuccessTips'))
   }
 }
 

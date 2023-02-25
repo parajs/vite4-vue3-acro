@@ -1,6 +1,36 @@
 <script setup lang="ts">
+
   const visible = ref(false);
   const { t } = useI18n();
+
+  const { data: mockList,runAsync,isLoading } = useRequest(getMockList,{
+    defaultParams: [{page:1}],
+    auto: false,
+  })
+
+
+  const { 
+    data: kuggamaxIndexPageing,
+    run: runKuggamaxIndexPageing,
+    refresh,
+    params,
+    isLoading: isLoadingPaging
+   } = useRequest(getKuggamaxIndexPaging,{
+    defaultParams: [{ page:1 }],
+    auto: true,
+    initialData: {
+      pageIndex: 1
+    },
+    onSuccess(data,params){
+        console.info('onSuccess',data,params)
+    },
+    onError(err,params){
+      console.info('onError',err,params)
+    }
+  })
+
+
+
   const handleClick = () => {
     visible.value = true;
   };
@@ -11,8 +41,14 @@
     visible.value = false;
   }
 
-  const data  = await indexlist({page:1})
-  const mockList = await homelist({page:1})
+
+  const handleMockList = ()=>{
+    runAsync().then((res)=>{
+        console.log('runAsync',res)
+    })
+  }
+
+
 </script>
 
 <template>
@@ -29,14 +65,44 @@
           <a-button  @click="handleClick">{{ t('btn-btnModal') }}</a-button>
         </a-space>
       </a-card>
-      <a-card class="mt-6" title="后台获取数据">
-        <a-list class="mt-5">
-          <a-list-item v-for="(item,index) in data.list" :key="index"> {{item.title}}</a-list-item>
+      <a-card class="mt-6" title="Kuggmax server list">
+        <template #extra>
+
+          <a-button type="text" 
+          @click="refresh">
+          Refresh
+        </a-button>
+
+          <a-button type="text" 
+          @click="runKuggamaxIndexPageing()">
+          Get Paging 1
+        </a-button>
+
+          <a-button type="text" 
+          @click="runKuggamaxIndexPageing({page:  params[0]?.page + 1})">
+          Get Kuggmax Paging {{ params[0]?.page + 1 }}
+        </a-button>
+        </template>
+        <a-skeleton v-if="isLoadingPaging">
+          <a-space direction="vertical" :style="{width:'100%'}" size="large">
+            <a-skeleton-line :rows="3" />
+          </a-space>
+        </a-skeleton>
+        <a-list class="mt-5" v-else>
+          <a-list-item v-for="(item,index) in kuggamaxIndexPageing?.list" :key="index"> {{item.title}}</a-list-item>
         </a-list>
       </a-card>
 
-      <a-card class="mt-6" title="获取mock数据">
-        <a-list class="mt-5">
+      <a-card class="mt-6" title="Mock list">
+        <template #extra>
+          <a-button @click="handleMockList" type="text">Get Mock list</a-button>
+        </template>
+        <a-skeleton v-if="isLoading">
+          <a-space direction="vertical" :style="{width:'100%'}" size="large">
+            <a-skeleton-line :rows="3" />
+          </a-space>
+        </a-skeleton>
+        <a-list class="mt-5"  v-else>
           <a-list-item v-for="(item,index) in mockList" :key="index"> {{item.title}}</a-list-item>
         </a-list>
       </a-card>

@@ -7,7 +7,6 @@ import routes from './routes';
 import scrollBehavior from './scrollBehavior'
 import beforeEach from './beforeEach';
 
-debugger
 
 const router: Router = createRouter({
   history: createWebHistory(),

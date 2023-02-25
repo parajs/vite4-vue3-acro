@@ -6,14 +6,14 @@ import axios from 'axios';
 // request interceptor
 axios.interceptors.request.use(
     (config) => {
+        const { userToken } = storeToRefs(useUserStore())
+        const { currentLocale } = useAcroDesiginLocale()
         // do something before request is sent
-        const token = '';
-        if (token) {
+        if (userToken.value) {
             // let each request carry token
-            config.headers.Authorization = `Bearer ${token}`
+            config.headers.Authorization = `Bearer ${userToken.value}`
         }
-
-        config.headers.locale = ''
+        config.headers.locale = currentLocale.value
         return config;
     },
     (error) => {
@@ -42,7 +42,8 @@ axios.interceptors.response.use(
             messageError(res.msg);
             // 401: Token expired;
             if (res.code === 401) {
-
+                const { exit } = useUserStore()
+                exit()
             }
 
             return Promise.reject(res.msg || 'Error');
@@ -51,7 +52,7 @@ axios.interceptors.response.use(
         return res.data;
     },
     (error) => {
-        console.log('err' + error);
+        console.error('err' + error);
         messageError(error.message);
         return Promise.reject(error.message);
     }
