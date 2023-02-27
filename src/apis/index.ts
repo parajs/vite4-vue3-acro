@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const apiPrefix = getEnvValue("VITE_API_PREFIX");
+const apiPrefix = getEnvValue('VITE_API_PREFIX');
 
 export function getKuggamaxIndexPaging(params?: KVObject): Promise<PageData> {
   return axios.get(`${apiPrefix}/subject/index/list`, { params });

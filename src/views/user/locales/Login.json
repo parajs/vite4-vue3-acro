@@ -1,12 +1,12 @@
 {
-    "zh-CN": {
-        "submit": "登录",
-        "usernamePlaceholder": "请输入用户名",
-        "pwdPlaceholder": "请输入密码"
-    },
-    "en-US": {
-        "submit": "Login",
-        "usernamePlaceholder": "please enter your username",
-        "pwdPlaceholder": "please enter your password"
-    }
+  "zh-CN": {
+    "submit": "登录",
+    "usernamePlaceholder": "请输入用户名",
+    "pwdPlaceholder": "请输入密码"
+  },
+  "en-US": {
+    "submit": "Login",
+    "usernamePlaceholder": "please enter your username",
+    "pwdPlaceholder": "please enter your password"
+  }
 }

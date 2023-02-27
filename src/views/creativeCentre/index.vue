@@ -1,3 +1,1 @@
-<template>
-    创作中心
-</template>
+<template>创作中心</template>

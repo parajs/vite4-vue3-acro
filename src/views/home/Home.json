@@ -1,18 +1,18 @@
 {
-    "zh-CN": {
-        "btn-primary": " 主要按钮",
-        "btn-secondary": "次要按钮（默认）",
-        "btn-dashed": "虚线按钮",
-        "btn-outline": "线形按钮",
-        "btn-text": "文本按钮",
-        "btn-btnModal": "AcroDesign组件国际化测试"
-    },
-    "en-US": {
-        "btn-primary": " Primary",
-        "btn-secondary": "Secondary",
-        "btn-dashed": "Dashed",
-        "btn-outline": "Outline",
-        "btn-text": "Text",
-        "btn-btnModal": "AcroDesign Components I18n Test"
-    }
+  "zh-CN": {
+    "btn-primary": " 主要按钮",
+    "btn-secondary": "次要按钮（默认）",
+    "btn-dashed": "虚线按钮",
+    "btn-outline": "线形按钮",
+    "btn-text": "文本按钮",
+    "btn-btnModal": "AcroDesign组件国际化测试"
+  },
+  "en-US": {
+    "btn-primary": " Primary",
+    "btn-secondary": "Secondary",
+    "btn-dashed": "Dashed",
+    "btn-outline": "Outline",
+    "btn-text": "Text",
+    "btn-btnModal": "AcroDesign Components I18n Test"
+  }
 }

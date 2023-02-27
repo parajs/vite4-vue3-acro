@@ -9,16 +9,12 @@
     "auto-imports.d.ts",
     "mocks/**/*"
   ],
-  "exclude": [
-    "src/**/__tests__/*"
-  ],
+  "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   }
 }

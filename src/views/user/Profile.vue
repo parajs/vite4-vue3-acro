@@ -1,3 +1,1 @@
-<template>
-    个人主页
-</template>
+<template>个人主页</template>

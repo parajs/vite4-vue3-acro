@@ -1,12 +1,12 @@
 {
-    "zh-CN": {
-        "theme-light": "亮色模式",
-        "theme-dark": "暗黑模式",
-        "theme-desk": "跟随系统"
-    },
-    "en-US": {
-        "theme-light": "Light Mode",
-        "theme-dark": "Dark Mode",
-        "theme-desk": "System theme"
-    }
+  "zh-CN": {
+    "theme-light": "亮色模式",
+    "theme-dark": "暗黑模式",
+    "theme-desk": "跟随系统"
+  },
+  "en-US": {
+    "theme-light": "Light Mode",
+    "theme-dark": "Dark Mode",
+    "theme-desk": "System theme"
+  }
 }

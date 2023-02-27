@@ -1,7 +1,7 @@
-import App from "./App.vue";
-import router from "./router";
-import "@/utils/interceptors";
-import "./styles/global.css";
+import App from './App.vue';
+import router from './router';
+import '@/utils/interceptors';
+import './styles/global.css';
 
 const app = createApp(App);
 // 全局注册
@@ -14,4 +14,4 @@ app.use(createPinia());
 app.use(router);
 app.use(i18n);
 
-app.mount("#app");
+app.mount('#app');

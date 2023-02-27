@@ -1,4 +1,4 @@
-import type { Ref, UnwrapRef } from "vue";
+import type { Ref, UnwrapRef } from 'vue';
 
 export type RequestService<TData, TParams extends unknown[]> = (
   ...args: TParams

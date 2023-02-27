@@ -1,12 +1,12 @@
 {
-    "zh-CN": {
-        "title": "Vite4-Vue3-Acro",
-        "exitTips": "退出成功",
-        "loginSuccessTips": "登录成功"
-    },
-    "en-US": {
-        "title": "Vite4-Vue3-Acro",
-        "exitTips": "Exit successfully",
-        "loginSuccessTips": "Login successfully"
-    }
+  "zh-CN": {
+    "title": "Vite4-Vue3-Acro",
+    "exitTips": "退出成功",
+    "loginSuccessTips": "登录成功"
+  },
+  "en-US": {
+    "title": "Vite4-Vue3-Acro",
+    "exitTips": "Exit successfully",
+    "loginSuccessTips": "Login successfully"
+  }
 }
