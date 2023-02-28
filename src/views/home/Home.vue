@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import Mysvg from '@/assets/svg/my.svg';
   const visible = ref(false);
   const { t } = useI18n();
 
@@ -52,6 +53,9 @@
   <main>
     <fixed-header />
     <a-layout class="ml-5 mr-5" style="margin-top: 80px">
+      <a-card title="图标">
+        <Mysvg />
+      </a-card>
       <a-card title="Buttons国际化">
         <a-space>
           <a-button type="primary">{{ t('btn-primary') }}</a-button>
